@@ -30,13 +30,14 @@ export default function Register() {
 
   const handleGoogleLogin = () => {
     window.open(
-      "http://localhost:8080/api/auth/google",
+      `${process.env.REACT_APP_Backend_URL}/auth/google`,
       "_blank",
       "width=500,height=600"
     );
 
     window.addEventListener("message", (event) => {
-      if (event.origin !== "http://localhost:8080") return;
+      if (event.origin !== "https://chwiggy-backend.onrender.com") 
+        return;
 
       const { token } = event.data;
       if (token) {
