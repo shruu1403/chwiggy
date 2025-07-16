@@ -42,7 +42,7 @@ export default function Register() {
       const { token } = event.data;
       if (token) {
         login(token); // ✅ save token via context
-        navigate("/dashboard"); // ✅ go to dashboard
+        navigate("/dashboard", { replace: true }); // ✅ go to dashboard
       }
     });
   };

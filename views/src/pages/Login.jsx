@@ -18,7 +18,7 @@ export default function Login() {
     const data = await res.json();
     if (res.ok) {
       login(data.token);
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     } else {
       alert(data.msg);
     }
@@ -37,7 +37,7 @@ export default function Login() {
       const { token } = event.data;
       if (token) {
         login(token); // ✅ save token via context
-        navigate("/dashboard"); // ✅ go to dashboard
+        navigate("/dashboard", { replace: true }); // ✅ go to dashboard
       }
     });
   };
