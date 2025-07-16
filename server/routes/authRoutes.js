@@ -17,7 +17,7 @@ authRouter.get("/google/callback",
         <body>
           <script>
             // Send token to opener window
-            window.opener.postMessage({ token: "${token}" }, "http://localhost:");
+            window.opener.postMessage({ token: "${token}" }, "https://chwiggy.netlify.app");
             window.close();
           </script>
           <p>Logging you in...</p>
