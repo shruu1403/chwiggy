@@ -1,0 +1,21 @@
+/* src/styles/CartButton.module.css */
+.cartButton {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  background-color: #ff9800;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+.cartButton:hover {
+  background-color: #e68900;
+}

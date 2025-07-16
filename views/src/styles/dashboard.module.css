@@ -1,0 +1,54 @@
+
+.dashboard {
+  padding: 1rem;
+ background: linear-gradient(120deg, #FFF3E0, #FFEB99);/* Softer cream background */
+  min-height: 200vh;
+}
+
+h3{
+  font-size: 1.5rem;
+  color: #5D4037;
+}
+
+
+.hi {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #ff7f11;
+}
+.welcome{
+   font-size: 1.7rem;
+  /* font-weight: 600; */
+  font-family:cursive;
+}
+.section_food{
+
+  margin-top: 2rem;
+}
+.cardGrid_food{
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  gap:1rem;
+  padding: 20px;
+ 
+}
+.section {
+  margin-top: 2rem;
+  text-align: center;
+  
+}
+
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  /* border:1px solid; */
+  
+}
+.cardGrid_dashboard{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}

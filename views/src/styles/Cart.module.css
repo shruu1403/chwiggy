@@ -1,0 +1,123 @@
+.cartPage {
+  padding: 2rem;
+  background-color: #f9fafc;
+  min-height: 100vh;
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff7ed;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width:auto;
+  /* border:1px solid; */
+}
+
+.image {
+  width: 120px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top:20px;
+  padding:5px;
+}
+
+.info {
+  flex: 1;
+  /* border:1px solid;  */
+  margin-top: -12px;
+}
+
+.quantityBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.4em ;
+}
+
+.quantityBox button {
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quantityBox span {
+  font-size: 18px;
+}
+
+.summary {
+  margin-top: 4rem;
+  text-align: left;
+  /* border:1px solid; */
+}
+.deleteBtn{
+  color:white;
+  background-color: rgb(249, 87, 59);
+}
+
+.checkoutBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.checkoutBtn:hover{
+  background-color: rgb(246, 141, 141);
+}
+.couponSection {
+  margin-top: 2rem;
+}
+
+.couponList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.couponBtn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff7ed;
+}
+.couponBtn:hover{
+  background-color: #ffd5a1;
+}
+
+.selected {
+  background: #ffc107;
+  border-color: #ffc107;
+  font-weight: bold;
+}
+
+.popup {
+  margin-top: 20px;
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+h3{
+  color:gray;
+}
+h2{
+  color:chocolate;
+}

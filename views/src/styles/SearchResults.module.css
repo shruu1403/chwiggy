@@ -1,0 +1,16 @@
+/* src/styles/SearchResults.module.css */
+.container {
+  padding: 2rem;
+  min-height: 150vh;
+  background-color: #f9fafc;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+}
+
+h3 {
+  margin-top: 2rem;
+}
