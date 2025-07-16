@@ -13,7 +13,6 @@ export default function Cart() {
   const { auth } = useContext(AuthContext);
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [restaurantID, setRestaurantID] = useState(null);
   const [coupons, setCoupons] = useState([]);
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const navigate = useNavigate();
@@ -25,7 +24,6 @@ export default function Cart() {
         setCartItems(data);
         if (Array.isArray(data) && data.length > 0) {
           const restaurantID = data[0].foodItemID.restaurantID;
-          setRestaurantID(restaurantID);
           const couponData = await getCouponsByRestaurant(restaurantID);
           setCoupons(couponData);
         }
@@ -82,7 +80,7 @@ const handleDelete = async (id) => {
 
   const handlePlaceOrder = async () => {
   try {
-    const response = await placeOrder(selectedCoupon?.code || null, auth.token);
+    await placeOrder(selectedCoupon?.code || null, auth.token);
     toast.success("Order Placed!");
     navigate("/order-history");
   } catch (err) {
