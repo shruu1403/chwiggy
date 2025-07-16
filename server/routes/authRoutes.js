@@ -17,7 +17,7 @@ authRouter.get("/google/callback",
         <body>
           <script>
             // Send token to opener window
-            window.opener.postMessage({ token: "${token}" }, "http://localhost:3000");
+            window.opener.postMessage({ token: "${token}" }, "http://localhost:");
             window.close();
           </script>
           <p>Logging you in...</p>

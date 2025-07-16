@@ -19,7 +19,13 @@ const { foodRouter } = require("./routes/food.routes")
 
 
 
-app.use(cors())
+app.use(
+  cors({
+    origin: ["https://chwiggy.netlify.app"], // your frontend Netlify domain
+    credentials: true,
+  })
+);
+
 
 app.use("/api/users",userRouter)
 app.use(passport.initialize())
