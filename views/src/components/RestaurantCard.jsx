@@ -22,10 +22,10 @@ export default function RestaurantCard({ restaurant })
         <div className={styles.meta}>
           <span className={styles.rating}>⭐ {restaurant.rating}</span>
           <span className={styles.time}>⏱ {restaurant.deliveryTime}</span>
-           
+        <div className="buttonWrapper">  
       <button className={styles.viewBtn} onClick={handleClick}>
         View Menu →
-      </button>
+      </button></div> 
       </div>
         </div>
       </div>
