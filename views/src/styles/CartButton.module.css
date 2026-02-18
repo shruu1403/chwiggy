@@ -1,21 +1,65 @@
-/* src/styles/CartButton.module.css */
+/* ===== Floating Cart Button ===== */
 .cartButton {
   position: fixed;
-  bottom: 20px;
-  right: 30px;
-  background-color: #ff9800;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(135deg, #FF9800, #F57C00);
   color: white;
-  padding: 12px 24px;
+  padding: 14px 28px;
   border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 6px 24px rgba(255, 152, 0, 0.35);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.35s ease;
   z-index: 999;
+  letter-spacing: 0.3px;
+  animation: cartBounceIn 0.5s ease-out 0.5s both;
 }
 
 .cartButton:hover {
-  background-color: #e68900;
+  background: linear-gradient(135deg, #F57C00, #E65100);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(255, 152, 0, 0.45);
+}
+
+.cartButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 16px rgba(255, 152, 0, 0.3);
+}
+
+@keyframes cartBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.8);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .cartButton {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cartButton {
+    bottom: 12px;
+    right: 12px;
+    padding: 10px 18px;
+    font-size: 13px;
+  }
 }

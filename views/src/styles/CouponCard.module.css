@@ -1,85 +1,118 @@
+/* ===== Coupon Card ===== */
 .card {
-  border: 2px dashed orange;
-  padding: 1.2rem;
-  border-radius: 12px;
-  background-color:  #fffaea;
- 
+  border: 2px dashed #FFB74D;
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #FFFDF5, #FFF8E1);
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  /* text-align: left; */
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  width: 140px; /* fixed width for uniformity */
+  box-shadow: 0 4px 16px rgba(255, 152, 0, 0.08);
+  width: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent 30%,
+      rgba(255, 193, 7, 0.06) 50%,
+      transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% 200%;
 }
 
 .card:hover {
-  transform: scale(1.03);
-  /* background-color: #fae6ac; */
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(255, 152, 0, 0.2);
+  border-color: #FF9800;
 }
 
 .title {
-  font-weight: bold;
-  color: #e65100;
-  font-size: 1.2rem;
+  font-weight: 700;
+  color: #E65100;
+  font-size: 1.15rem;
+  position: relative;
+  letter-spacing: 0.5px;
 }
 
 .discount {
   margin: 0.5rem 0;
-  color: #5d4037;
+  color: #5D4037;
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
 .button {
-  background-color: #ff9800;
+  background: linear-gradient(135deg, #FF9800, #F57C00);
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 5px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
   margin-top: 0.5rem;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
 .button:hover {
-  background-color: #fb8c00;
+  background: linear-gradient(135deg, #F57C00, #E65100);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
 }
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .card {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
+    width: 130px;
     padding: 1rem;
-    text-align: center;
   }
 
   .title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .discount {
-    font-size: 0.95rem;
-  }
-
-  .button {
-    width: 100%;
-    padding: 0.5rem;
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
   .card {
-    max-width: 90%;
-    padding: 0.8rem;
-    border-width: 1.5px;
+    width: 110px;
+    padding: 0.85rem;
+    border-radius: 12px;
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .discount {
-    font-size: 0.9rem;
+    font-size: 1.15rem;
   }
 
   .button {
-    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 }

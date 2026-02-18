@@ -1,59 +1,119 @@
+/* ===== Navbar ===== */
 .navbar {
-  background-color: #ffcf48; /* cheesy yellow */
-  padding: 10px 20px;
-  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.2);
+  background: rgba(255, 207, 72, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 24px;
+  box-shadow: 0 4px 20px rgba(255, 165, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid rgba(255, 183, 77, 0.3);
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .link {
-  margin: 0 12px;
+  margin: 0 8px;
   text-decoration: none;
-  font-size: 18px;
-  color: #5a2d0c; /* dark cheese crust */
-  font-weight: 500;
-  transition: all 0.2s ease;
-  padding: 6px 10px;
-  /* border-radius: 6px; */
-  border-right: 1px solid white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  color: #5a2d0c;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  position: relative;
+  letter-spacing: 0.3px;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #E65100;
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
 .link:hover {
-  background-color: #ffe08a;
-  color: #c1440e; /* deeper cheese brown */
+  background-color: rgba(255, 224, 138, 0.6);
+  color: #BF360C;
 }
 
+.link:hover::after {
+  width: 60%;
+}
 
+.active {
+  background-color: rgba(255, 224, 138, 0.7);
+  color: #BF360C;
+}
+
+.active::after {
+  width: 60%;
+}
 
 .header {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   margin-left: auto;
 }
 
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 16px;
+  }
+
   .navContainer {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .header {
-    margin-top: 10px;
     width: 100%;
     justify-content: space-between;
+    margin-top: 6px;
   }
 
   .link {
-    margin: 8px 0;
+    margin: 0 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .link {
+    font-size: 13px;
+    padding: 5px 10px;
   }
 }

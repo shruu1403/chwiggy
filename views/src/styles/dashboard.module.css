@@ -1,54 +1,218 @@
-
+/* ===== Dashboard Container ===== */
 .dashboard {
-  padding: 1rem;
- background: linear-gradient(120deg, #FFF3E0, #FFEB99);/* Softer cream background */
-  min-height: 200vh;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, #FFF8ED 0%, #FFECB3 50%, #FFF3E0 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-h3{
-  font-size: 1.5rem;
-  color: #5D4037;
+/* Subtle floating decoration */
+.dashboard::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 152, 0, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
+/* ===== Welcome & Hi headers ===== */
+.welcome {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: 'Inter', cursive;
+  background: linear-gradient(135deg, #F57C00, #FF9800, #FFB74D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.6s ease-out both;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
 
 .hi {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: #ff7f11;
-}
-.welcome{
-   font-size: 1.7rem;
-  /* font-weight: 600; */
-  font-family:cursive;
-}
-.section_food{
-
-  margin-top: 2rem;
-}
-.cardGrid_food{
-  display: grid;
-  grid-template-columns: repeat(7,1fr);
-  gap:1rem;
-  padding: 20px;
- 
-}
-.section {
-  margin-top: 2rem;
+  color: #E65100;
+  animation: fadeInUp 0.6s ease-out 0.15s both;
   text-align: center;
-  
+  margin-bottom: 0.5rem;
 }
 
+/* ===== Error ===== */
+.error {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #d32f2f;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ===== Loading skeleton shimmer ===== */
+.loading {
+  text-align: center;
+  color: #BF360C;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 2rem;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+/* ===== Section wrapper ===== */
+.section {
+  margin-top: 2.5rem;
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.section_food {
+  margin-top: 2.5rem;
+  animation: fadeInUp 0.7s ease-out 0.2s both;
+}
+
+/* ===== Section headings ===== */
+.sectionTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #5D4037;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF9800, #FFB74D);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.section:hover .sectionTitle::after,
+.section_food:hover .sectionTitle::after {
+  width: 100px;
+}
+
+/* ===== Coupon Grid ===== */
 .cardGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.25rem;
   justify-content: center;
-  align-items: center;
-  /* border:1px solid; */
-  
+  align-items: stretch;
+  padding: 0.5rem 0;
 }
-.cardGrid_dashboard{
+
+/* ===== Food Items Grid ===== */
+.cardGrid_food {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+}
+
+/* ===== Restaurant Grid — PROPERLY ALIGNED ===== */
+.cardGrid_dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+/* ===== Responsive Breakpoints ===== */
+
+/* Tablet landscape */
+@media (max-width: 1200px) {
+  .dashboard {
+    padding: 2rem 2rem;
+  }
+
+  .cardGrid_dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 900px) {
+  .dashboard {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .welcome {
+    font-size: 1.6rem;
+  }
+
+  .hi {
+    font-size: 1.2rem;
+  }
+
+  .cardGrid_food {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .cardGrid_dashboard {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .dashboard {
+    padding: 1.25rem 1rem;
+  }
+
+  .welcome {
+    font-size: 1.3rem;
+  }
+
+  .hi {
+    font-size: 1.05rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.15rem;
+  }
+
+  .cardGrid {
+    gap: 1rem;
+  }
+
+  .cardGrid_food {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .cardGrid_dashboard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+  .dashboard {
+    padding: 1rem 0.75rem;
+  }
+
+  .welcome {
+    font-size: 1.15rem;
+  }
+
+  .cardGrid_food {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

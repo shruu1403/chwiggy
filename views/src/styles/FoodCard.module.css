@@ -1,30 +1,65 @@
-/* src/styles/FoodCard.module.css */
+/* ===== Food Category Card ===== */
 .card {
-  border: 1px solid #ffe4b5;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 228, 181, 0.6);
+  border-radius: 16px;
   overflow: hidden;
-  background-color: #fffef7;
-  width: 160px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   text-align: center;
+  position: relative;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(255, 152, 0, 0.16);
+  border-color: #FFB74D;
 }
 
 .image {
   width: 100%;
-  height: 120px;
+  height: 110px;
   object-fit: cover;
-  border-bottom: 1px solid #ffc107;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.08);
 }
 
 .name {
-  margin: 0.5rem;
-  font-size: 1rem;
+  margin: 0;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  color: #d17b00;
+  color: #E65100;
+  letter-spacing: 0.2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .image {
+    height: 95px;
+  }
+
+  .name {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    border-radius: 12px;
+  }
+
+  .image {
+    height: 80px;
+  }
+
+  .name {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.3rem;
+  }
 }

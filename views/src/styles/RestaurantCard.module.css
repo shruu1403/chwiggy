@@ -1,117 +1,167 @@
+/* ===== Restaurant Card — Vertical Premium Layout ===== */
 .card {
-  display: grid;
-  grid-template-columns: 140px 1fr auto;
-  align-items: center;
-  gap: 1.5rem;
-  background: #fff;
-  border-radius: 8px;
-  padding: 16px;
-  border: 1px solid #ffc107;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: cardFadeIn 0.5s ease-out both;
+  cursor: default;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(255, 152, 0, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
+/* ===== Image area ===== */
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+.ratingBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5D4037;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Info area ===== */
 .info {
-  flex-grow: 1;
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
 }
 
 .name {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #222;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2E2E2E;
+  line-height: 1.3;
 }
 
 .address {
-  margin: 4px 0;
-  color: #777;
-  font-size: 1.0rem;
+  margin: 0;
+  color: #888;
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 
 .categories {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 8px;
-  margin-top: 8px;
-}
-
-.meta {
-  display: flex;
-  gap: 12px;
-  font-size: 1.0rem;
+  font-size: 0.9rem;
   color: #666;
+  margin: 0.25rem 0 0.5rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-.rating {
-  font-weight: 500;
+/* ===== Footer (time + button) ===== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f5f5f5;
 }
 
 .time {
-  font-style: italic;
-}
-.image {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius:6px;
-}
-.buttonWrapper {
-  display: flex;
-  align-items: center; /* vertical alignment */
-  justify-content: center;
-  height: 100%;
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
 }
 
 .viewBtn {
-  background-color: #ffa500;
+  background: linear-gradient(135deg, #FF9800, #F57C00);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
   white-space: nowrap;
-  height: 40px;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  letter-spacing: 0.2px;
 }
 
 .viewBtn:hover {
-  background-color: #e69500;
+  background: linear-gradient(135deg, #F57C00, #E65100);
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.35);
 }
 
-
-@media (max-width: 768px) {
-  .card {
-    grid-template-columns: 1fr;
-    text-align: center;
+/* ===== Card entrance animation ===== */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
   .image {
-    height: 180px;
-    width: 100%;
+    height: 160px;
   }
 
   .info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 12px 0;
+    padding: 0.85rem 1rem 1rem;
   }
 
-  .meta {
-    justify-content: center;
+  .name {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    border-radius: 12px;
+  }
+
+  .image {
+    height: 200px;
+  }
+
+  .info {
+    padding: 0.85rem 1rem 1rem;
   }
 
   .viewBtn {
-    margin-top: 12px;
-    width: 100%;
-    max-width: 200px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
   }
 }
