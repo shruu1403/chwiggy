@@ -5,7 +5,7 @@ const { foodItemModel } = require("./models/foodItemModel");
 const { restaurantModel } = require("./models/restaurantModel");
 
 require("dotenv").config();
-const MONGO_URL = process.env.mongo_URL;
+const MONGO_URL = process.env.MONGO_URL;
 
 const foodCategories = [
   "Pizza",
@@ -155,7 +155,7 @@ const imageMap = {
   },
   Burger: {
     "Cheese Burger":
-      "https://res.cloudinary.com/dsul1oc7e/image/upload/v1752392938/cheese_burger_q8ctnd.png",
+      "https://res.cloudinary.com/dsul1oc7e/image/upload/v1752392939/double_cheese_burger_qsggsj.png",
     "Veg Melt": "https://res.cloudinary.com/dsul1oc7e/image/upload/v1752392961/veg_melt_burger_jsymlz.png",
     "Crispy Paneer":
       "https://res.cloudinary.com/dsul1oc7e/image/upload/v1752392936/crispy_paneer_burger_chxkag.png",

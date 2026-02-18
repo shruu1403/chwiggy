@@ -21,7 +21,7 @@ const { foodRouter } = require("./routes/food.routes")
 
 app.use(
   cors({
-    origin: ["https://chwiggy.netlify.app"], // your frontend Netlify domain
+    origin: ["https://chwiggy.netlify.app"],
     credentials: true,
   })
 );
